@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数据看板2</title>
+  <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet/less" href="./assets/css/index.less">
+  <script src="./assets/js/less.min.js"></script> -->
+  <link rel="stylesheet" href="./assets/css/index.css">
+
+</head>
+
+<body>
+
+  <button id="b1">点击全屏</button>
+  <div id="app">
+    <!-- 上半部分 -->
+    <div class="top">
+      <!-- 左侧echarts绘图 -->
+      <div class="top-left">
+
+      </div>
+      <!-- 右侧出库情况,对接异常显示 -->
+      <div class="top-right">
+        <!-- 出库情况 -->
+        <div class="inner-top">
+          <h2>出库率情况</h2>
+          <div class="container">
+            <div class="seven big">
+              <p>近7天出库率</p>
+              <b>0</b><sub>%</sub>
+            </div>
+            <div class="thirty small">
+              <p>近30天出库率</p>
+              <b class="small">0</b><sub>%</sub>
+            </div>
+            <div class="sixty small">
+              <p>前30天出库率</p>
+              <b class="small">0</b><sub>%</sub>
+            </div>
+          </div>
+        </div>
+        <!-- 对接异常 -->
+        <div class="inner-bottom">
+          <h2>对接异常预警</h2>
+          <div class="container">
+            <div class='num'>
+              <b class='errorCount'>3</b>
+            </div>
+            <div class="warn">
+              <!-- 超过3条滚动显示 -->
+              <ul class="top-scroll">
+                <!-- <li>
+                      <span>四川仁通医药有限公司</span>
+                      <b>10/8 10:10:00</b>
+                    </li>
+                    <li>
+                      <span>四川本草堂药业有限公司</span>
+                      <b>10/8 10:10:00</b>
+                    </li>
+                    <li>
+                      <span>四川本草堂药业有限公司</span>
+                      <b>10/8 10:10:00</b>
+                    </li>
+                    <li>
+                      <span>四川本草堂药业有限公司</span>
+                      <b>10/8 10:10:00</b>
+                    </li>
+                    <li>
+                      <span>四川本草堂药业有限公司</span>
+                      <b>10/8 10:10:00</b>
+                    </li>
+                    <li>
+                        <span>四川本草堂药业有限公司</span>
+                        <b>10/8 10:10:00</b>
+                      </li>
+                      <li>
+                          <span>四川本草堂药业有限公司</span>
+                          <b>10/8 10:10:00</b>
+                        </li> -->
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 下半部分 -->
+    <div class="bottom">
+      <div class="left-table">
+        <h2>未匹配高频采购商品TOP20</h2>
+        <table style="background-color: rgba(255,255,255,0.7);">
+          <thead>
+            <tr>
+              <td>序号</td>
+              <td>商品名称</td>
+              <td>规格</td>
+              <td>厂家</td>
+              <td>采购频次</td>
+            </tr>
+          </thead>
+        </table>
+        <table class="left-scroll">
+          <tbody>
+            <!-- <tr>
+              <td>10000000000000000</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>111</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>122</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div class="right-table">
+        <h2>异常订单</h2>
+        <table>
+          <thead>
+            <tr>
+              <td>订单编号</td>
+              <td>采购单位</td>
+              <td>供应商</td>
+              <td>订单金额</td>
+              <td>商品数</td>
+            </tr>
+          </thead>
+        </table>
+        <table style="position: relative;" class="right-scroll">
+          <tbody>
+            <!-- <tr>
+                <td>1111111111</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+  <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+  <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script> -->
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
+  <script>
+    $(function () {
+      //点击全屏
+      $('#b1').click(function () {
+        document.documentElement.webkitRequestFullscreen();
+        $(this).hide();
+        // showToast()
+      })
+
+      var dom = document.getElementsByClassName("top-left")[0];
+      var myChart = echarts.init(dom);
+      var app = {};
+      option = null;
+
+      $(window).resize(function () {
+        if (option && typeof option === "object") {
+          var canvas = document.getElementsByTagName('canvas')[0];
+          canvas.style.borderRadius = "10px";
+          myChart.resize();
+        }
+      })
+
+      //scroll函数
+      function autoScroll(obj) {
+        $(obj).animate({
+          marginTop: '-33px'
+        }, 1000, function () {
+          $(this).css({
+            marginTop: '0'
+          }).find("tr:first,li:first").appendTo(this);
+        });
+      }
+
+      var leftScroll = document.getElementsByClassName('left-scroll')[0],
+        rightScroll = document.getElementsByClassName('right-scroll')[0],
+        topScroll = document.getElementsByClassName('top-scroll')[0];
+
+      var lockReconnect = false, //避免重复连接控制
+        ws = null, //websocket实例
+        scrollTimer = null, //无限滚动table定时器
+        timer1 = null; //请求数据定时器,15分钟一次
+
+      //websocket心跳检测
+      var heartCheck = {
+        timeout: 60000,
+        timeoutObj: null,
+        reset: function () {
+          clearTimeout(this.timeoutObj);
+          this.start();
+        },
+        start: function () {
+          this.timeoutObj = setTimeout(function () {
+            ws.send('3');
+          }, this.timeout)
+        }
+      }
+
+
+      var $seven = $('.seven>b'),
+        $thirty = $('.thirty>b'),
+        $sixty = $('.sixty>b'),
+        $errorCount = $('.errorCount'),
+        $topScroll = $('.top-scroll'),
+        $leftScroll = $('.left-scroll>tbody'),
+        $rightScroll = $('.right-scroll>tbody');
+
+      //websocket函数
+      function mySocket() {
+        ws = new WebSocket('ws://st.sosoyy.com:7181');
+        ws.onmessage = function (e) {
+          heartCheck.reset();
+          var res = JSON.parse(e.data);
+          if (res.Protocol != 2) return;
+
+          var data = res.Data;
+          $seven.text(data.OutboundRate7).css('color', data.OutboundRate7 < data.OutboundRate30 ? 'red' : '#fff');
+          $thirty.text(data.OutboundRate30);
+          $sixty.text(data.OutboundRate60);
+          $errorCount.text(data.DockingExceptionCount);
+
+          //重排
+          var error_legend_data = [],
+            error_series_data = [];
+          for (var i = 0; i < data.PurchasingDynamicsModel.legend_dataError.length; i++) {
+            var errorName = data.PurchasingDynamicsModel.legend_dataError[i];
+            var errorIndex = data.PurchasingDynamicsModel.legend_data.indexOf(errorName);
+            error_legend_data = error_legend_data.concat(data.PurchasingDynamicsModel.legend_data.splice(
+              errorIndex, 1));
+            error_series_data = error_series_data.concat(data.PurchasingDynamicsModel.series_data.splice(
+              errorIndex, 1))
+          }
+          data.PurchasingDynamicsModel.legend_data = error_legend_data.concat(data.PurchasingDynamicsModel.legend_data);
+          data.PurchasingDynamicsModel.series_data = error_series_data.concat(data.PurchasingDynamicsModel.series_data);
+
+          // 对接异常预警滚动li
+          var html = "";
+          for (var i = 0; i < data.DockingExceptionList.length; i++) {
+            html += "<li><span>" + data.DockingExceptionList[i].name + "</span><b>" + data.DockingExceptionList[i]
+              .dateTime + "</b></li>";
+          }
+          $topScroll.html(html);
+
+          // 未匹配高频采购商品TOP20
+          html = "";
+          for (var i = 0; i < data.NotMatchProductList.length; i++) {
+            html += "<tr><td>" + data.NotMatchProductList[i].no + "</td><td>" + data.NotMatchProductList[i].DrugsBase_DrugName +
+              "</td><td>" + data.NotMatchProductList[i].DrugsBase_Specification + "</td><td>" + data.NotMatchProductList[
+                i].DrugsBase_Manufacturer + "</td><td>" + data.NotMatchProductList[i].Frequency + "</td></tr>";
+          }
+          $leftScroll.html(html);
+
+          // 异常订单
+          html = "";
+          for (var i = 0; i < data.OrderExceptionList.length; i++) {
+            var res = data.OrderExceptionList[i];
+            html += "<tr><td>" + res.oid + "</td><td>" + res.companyName + "</td><td>" + res.storename +
+              "</td><td>" + res.surplusmoney + "</td><td>" + res.productamount + "</td></tr>";
+          }
+          $rightScroll.html(html);
+          clearInterval(scrollTimer);
+          scrollTimer = setInterval(function () {
+            if (data.DockingExceptionList.length > 3) autoScroll(topScroll);
+            if (data.NotMatchProductList.length > 5) autoScroll(leftScroll);
+            if (data.OrderExceptionList.length > 5) autoScroll(rightScroll);
+
+          }, 6500)
+
+          var series = [];
+          for (var i = 0; i < data.PurchasingDynamicsModel.series_data.length; i++) {
+            var obj = {};
+            var name = data.PurchasingDynamicsModel.legend_data[i];
+            obj.name = name;
+            obj.type = 'line';
+            obj.stack = '总量';
+            obj.data = data.PurchasingDynamicsModel.series_data[i];
+            obj.z = 999;
+            obj.itemStyle = {};
+            obj.itemStyle.normal = {};
+            obj.itemStyle.normal.lineStyle = {};
+            var index = data.PurchasingDynamicsModel.legend_dataError.indexOf(name);
+            if (index == -1) {
+              obj.z = 2;
+              obj.itemStyle.normal.color = "#eee";
+              obj.itemStyle.normal.lineStyle.color = "#eee";
+              // data.PurchasingDynamicsModel.legend_data[i]="";
+            }
+
+            series.push(obj);
+          }
+
+
+          if (option == null) {
+            option = {
+              backgroundColor: '#FEF8EF',
+              title: {
+                text: '客户采购金额',
+                left: 5,
+                top: 20
+              },
+              tooltip: {
+                trigger: 'axis',
+                position: function (point, params, dom, rect, size) {
+                  return [point[0] + 50, 50]
+                }
+              },
+              legend: {
+                data: data.PurchasingDynamicsModel.legend_data,
+                type: 'scroll'
+              },
+              grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+              },
+              toolbox: {
+                feature: {
+                  saveAsImage: {
+                    show: false
+                  }
+                }
+              },
+              xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: data.PurchasingDynamicsModel.xAxis_data
+              },
+              yAxis: {
+                type: 'value'
+              },
+              series: series
+            };
+            console.log(option);
+            if (option && typeof option === "object") {
+              myChart.setOption(option, true);
+
+            }
+          }
+
+
+        };
+        ws.onopen = function () {
+          ws.send("2");
+          heartCheck.start();
+          timer1 = setInterval(function () {
+            ws.send('2');
+          }, 900000)
+        };
+        ws.onclose = function () {
+          clearInterval(timer1);
+          timer1 = null;
+          if (lockReconnect) return;
+          lockReconnect = true;
+          setTimeout(function () {
+            mySocket();
+            lockReconnect = false;
+          }, 3000);
+        };
+        ws.onerror = function () {
+          if (lockReconnect) return;
+          lockReconnect = true;
+          setTimeout(function () {
+            mySocket();
+            lockReconnect = false;
+          }, 3000)
+        }
+      }
+      mySocket();
+
+      // var timer = null;
+      // function showToast(){
+
+      //   clearTimeout(timer);
+      //   $('.toast').remove();
+      //   $('body').append(`<div class="toast"> 
+      //                       <span>
+      //                         已将对应商品关联基础数据。 
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         <a href="javascript:;" class="goBack">
+      //                           <i class="fa fa-reply"></i>撤销 
+      //                         </a>
+      //                       </span>
+      //                       <span style="float: right">
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         <a href="javascript:;" class="toastClose">
+      //                             <i class="fa fa-close fa-lg"></i>
+      //                         </a>       
+      //                       </span>
+
+      //                     </div>`)
+      //   $('.toast').css({
+      //     bottom:-50,
+      //   }).animate({
+      //     bottom:50
+      //   },function(){
+      //     clearTimeout(timer);
+      //     timer = null;
+      //     timer=setTimeout(function(){
+      //       $('.toast').remove();
+      //     },10000);
+      //   });
+      // }
+
+      // $('body').on('click','.toastClose',function(){
+      //     $('.toast').remove();
+      //     clearTimeout(timer);
+      //     timer = null;
+      //   })
+
+
+      // $('body').on('click','.goBack',function(){
+      //     clearTimeout(timer);
+      //     timer = null;
+      //     $('.toast').remove();
+      //     $('body').append(`<div class="toast"> 
+      //                       <span>
+      //                         操作已撤销。 
+      //                       </span>
+      //                       <span style="float: right">
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         &nbsp;
+      //                         <a href="javascript:;" class="toastClose">
+      //                             <i class="fa fa-close fa-lg"></i>
+      //                         </a>       
+      //                       </span>
+
+      //                     </div>`)
+      //    $('.toast').css({
+      //       bottom:-50,
+      //     }).animate({
+      //       bottom:50
+      //     },function(){
+      //       timer=setTimeout(function(){
+      //         $('.toast').remove();
+      //       },3000)
+      //     });
+      //   })
+
+
+
+
+
+
+
+
+    })
+  </script>
+</body>
+
+</html>
